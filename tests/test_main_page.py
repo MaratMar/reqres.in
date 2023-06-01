@@ -8,7 +8,7 @@ from pages.locators import Response, Request, GetRequest, PostRequest, PatchRequ
 link = "https://reqres.in"
 
 
-@pytest.mark.skip
+
 @pytest.mark.parametrize('selector', {GetRequest.SINGLE_USER,
                                       GetRequest.LIST_USERS,
                                       GetRequest.SINGLE_USER_NOT_FOUND,
@@ -33,7 +33,7 @@ def test_main_page_method_get(browser, base_url, selector):
     assert status_code_response == str(response_api.status_code), 'Статус код ответа api, не соответсвует коду web'
 
 
-@pytest.mark.skip
+
 @pytest.mark.parametrize('selector', {PostRequest.CREATE_USERS,
                                       PostRequest.LOGIN_SUCCESSFUL,
                                       PostRequest.LOGIN_UNSUCCESSFUL,
@@ -56,7 +56,6 @@ def test_main_page_method_post(browser, base_url, selector):
     assert status_code_response == str(response_api.status_code), 'Статус код ответа api, не соответсвует коду web'
     assert response_web_body == response_api.json(), 'Структура ответа api, не соответсвует указанному web'
 
-@pytest.mark.skip
 @pytest.mark.parametrize('selector', {PatchRequest.patch_USER, PutRequest.PUT_USER})
 def test_main_page_update(browser, base_url, selector):
     page = BasePage(browser, link)
